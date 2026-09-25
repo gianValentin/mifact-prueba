@@ -1,0 +1,46 @@
+<div class="home-layout">
+    <main class="content">
+        <header class="content-header">
+            <h1>Productos</h1>
+        </header>
+        <div class="content-body">
+            <p-floatlabel variant="in">
+                <p-autocomplete [(ngModel)]="name" (completeMethod)="search($event)" />
+                <label for="in_label">Nombre</label>
+            </p-floatlabel>
+            <p-button label="Crear" severity="secondary" (onClick)="create()"/>
+            <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template #header>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-product>
+                    <tr>
+                        <td>{{ product.idProduct }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.count }}</td>
+                        <td>{{ product.price | currency:'USD' }}</td>
+                        <td>
+                            <p-button icon="pi pi-pencil" (click)="updateProduct(product)" severity="secondary"
+                                rounded />
+                        </td>
+                        <td>
+                            <p-button icon="pi pi-trash" (click)="deleteProduct(product)" severity="secondary"
+                                rounded />
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <p-paginator (onPageChange)="loadProducts($event)" [first]="first" [rows]="rows" [totalRecords]="30"
+                [rowsPerPageOptions]="[10, 20, 30]" />
+        </div>
+    </main>
+</div>

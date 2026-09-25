@@ -1,0 +1,20 @@
+<p-floatlabel variant="in">
+    <input pInputText id="in_label" autocomplete="off" [(ngModel)]="name" />
+    <label for="in_label">Nombre</label>
+</p-floatlabel>
+<p-floatlabel variant="in">
+    <input pInputText id="in_label" autocomplete="off" [(ngModel)]="description" />
+    <label for="in_label">Descripción</label>
+</p-floatlabel>
+<p-floatlabel variant="in">
+    <p-inputnumber inputId="integeronly" id="in_label" [(ngModel)]="count" />
+    <label for="in_label">Cantidad</label>
+</p-floatlabel>
+<p-floatlabel variant="in">
+    <p-inputnumber inputId="integeronly" id="in_label" [(ngModel)]="price"   />
+    <label for="in_label">Precio</label>
+</p-floatlabel>
+<div class="flex justify-end gap-2">
+    <p-button label="Cancelar" severity="secondary" (onClick)="close()"/>
+    <p-button label="Guardar" (onClick)="edit()" />
+</div>
